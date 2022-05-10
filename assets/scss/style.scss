@@ -1,0 +1,73 @@
+@import 'variables';
+
+/* General page parameters */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.graybody{
+    background-color: $back-groundbody;
+}
+
+.transition {
+    transition: $transitions;
+    margin: 40px auto 0;
+
+&:hover{
+    width: 100%;
+    margin: 0% auto;
+}
+}
+
+.copyright{
+    padding: 2%;
+    margin: 2%;
+    background-color: $back-groundfooter;
+    color: white;
+    font-size: 20px;
+
+    font-weight: map-get($map: $pagefont, $key: font1);
+    text-align: map-get($map: $pagefont, $key: font2);
+    font-family: map-get($map: $pagefont, $key: font3);
+}
+
+@mixin sizes($w, $h){
+    width: $w;
+    height: $h;
+}
+
+.lents{
+    width: $sellwight/2;
+    height: $autoimage;
+    border-color: black;
+    border-style:solid;
+}
+
+@each $sell, $color in $sellscolors{
+    .btn--#{$sell}{
+        background-color: $color;
+    }
+}
+
+@media screen and (max-width: 1100px){
+
+    .lents{
+        @include sizes($sellwight/3, $autoimage);
+        border-color: black;
+        border-style:solid;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+
+    .lents{
+        width: $sellwight/4;
+        height: $autoimage;
+        border-color: black;
+        border-style:solid;
+    }
+
+}
